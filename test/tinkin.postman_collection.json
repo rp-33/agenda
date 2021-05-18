@@ -1,0 +1,121 @@
+{
+	"variables": [],
+	"info": {
+		"name": "tinkin",
+		"_postman_id": "198aa82c-35e8-63ae-2190-4296ae31f42a",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8888/api/v1/createContact",
+			"request": {
+				"url": "http://localhost:8888/api/v1/createContact",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "displayName",
+							"value": "yessica marchi",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "number",
+							"value": "04121234569",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8888/api/v1/getContacts",
+			"request": {
+				"url": "http://localhost:8888/api/v1/getContacts",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8888/api/v1/editContact",
+			"request": {
+				"url": "http://localhost:8888/api/v1/editContact",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "_id",
+							"value": "60a38d6342f94c1d456861be",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "displayName",
+							"value": "ricardo jesus",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "number",
+							"value": "04125197082",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8888/api/v1/deleteContact",
+			"request": {
+				"url": "http://localhost:8888/api/v1/deleteContact",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "_id",
+							"value": "60a38d6342f94c1d456861be",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
