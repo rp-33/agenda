@@ -7,6 +7,7 @@ let bodyParser = require('body-parser');
 let logger = require('morgan');
 let cors = require('cors');
 let router = require('./routes');
+let staticRoute = require('./staticRoute');
 
 let app = express();
 
@@ -19,10 +20,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cors());
-app.use(express.static(path.join(__dirname, 'public')));
 app.use('/uploads', express.static(__dirname +'/uploads'));
 
 /*configuration router*/
+staticRoute.config(express,app);
 
 router(app)
 

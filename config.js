@@ -6,7 +6,7 @@ dotenv.config();
 
 let configuration = {
 	server:{
-		port : process.env.PORT || process.env.SERVER_PORT
+		port : process.env.SERVER_PORT
 	},
  	db:{
  		port: process.env.DB_PORT
