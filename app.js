@@ -12,7 +12,7 @@ let staticRoute = require('./staticRoute');
 let app = express();
 
 global.config = require('./config.js');
-app.set('port',global.config.server.port);
+app.set('port', (process.env.PORT || 8888));
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -20,7 +20,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cors());
-app.use('/uploads', express.static(__dirname +'/uploads'));
+
 
 /*configuration router*/
 staticRoute.config(express,app);
