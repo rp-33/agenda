@@ -9,7 +9,7 @@ let configuration = {
 		port : process.env.PORT || process.env.SERVER_PORT
 	},
  	db:{
- 		port: process.env.MONGODB_URI || process.env.DB_PORT
+ 		port: process.env.DB_PORT
  	}
 };
 
