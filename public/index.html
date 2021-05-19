@@ -1,7 +1,52 @@
-<!doctype html> <html> <head> <meta charset="utf-8"> <title></title> <meta name="description" content=""> <meta name="viewport" content="width=device-width"> <!-- Place favicon.ico and apple-touch-icon.png in the root directory --> <link  href="styles/vendor.c1308e37.css"> <link r href="styles/main.6dc4e80d.css"> </head> <body ng-app="clientApp"> <div class="container"> <div ng-view=""></div> </div> <!-- Google Analytics: change UA-XXXXX-X to be your site's ID --> <script>!function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
-       (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
-       r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
-       }(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
 
-       ga('create', 'UA-XXXXX-X');
-       ga('send', 'pageview');</script> <script src="scripts/vendor.bc24e50d.js"></script> <script src="scripts/scripts.js"></script> </body> </html>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link  href="styles/main.css">
+  </head>
+  <body ng-app="clientApp">
+
+  <div class="container" ng-controller="MainCtrl">
+<div class="jumbotron">
+  <h2>Contactos</h2>
+  <ol class="ctn-list">
+    <li class="list" ng-repeat="user in contacts">
+      <p ng-show="!user.active">
+        <span>{{user.displayName}}</span> 
+        <span>-</span>
+        <span>{{user.number}}</span>
+        <button class="btn btn-primary" ng-click="handleEditActive(user)">Editar</button>
+        <button class="btn btn-danger" ng-click="handleDelete(user,$index)">Eliminar</button>
+      </p>
+      <form role="form" ng-submit="handleEdit(user,$index)" ng-show="user.active">
+      <input ng-model="user.displayName" type="text" placeholder="Nombre y apellido" required class="form-control">
+      <input ng-model="user.number" type="number" placeholder="Numero telefonico" required class="form-control">
+      <button class="btn btn-danger" ng-click="handleEditActive(user)">Cancelar</button>
+      <input type="submit" value="Guardar" class="btn btn-primary">   
+      </form> 
+    </li>
+  </ol>
+</div>
+
+ <div class="jumbotron">
+  <h2>Agregar contactos</h2>
+  <form role="form" ng-submit="handleSave()">
+    <input ng-model="displayName" type="text" placeholder="Nombre y apellido" required class="form-control">
+    <input ng-model="number" type="number" placeholder="Numero telefonico" required class="form-control">
+    <input type="submit" value="Guardar" class="btn btn-primary">
+  </form>  
+
+  </div>
+
+</div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+
+</body>
+</html>
