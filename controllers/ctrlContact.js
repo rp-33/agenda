@@ -29,7 +29,7 @@ module.exports = {
 			});
 
 			let result = await contact.save();
-        	if(result) return res.status(201).send({message : "Se ha creado con exito"});
+        	if(result) return res.status(201).send({contact});
 			res.status(400).send({message : "Ocurrio un error"});
 		}
 		catch(err)
@@ -60,7 +60,7 @@ module.exports = {
 	deleteContact : async (req,res)=>{
 		try
 		{
-			let {_id} = req.body;
+			let {_id} = req.query;
         	let result = await Contact.deleteOne({_id}); 
         	if(result.n === 1 && result.deletedCount=== 1) return res.status(200).send({message : "Se ha eliminado con exito"});
         	res.status(400).send({error:'Hubo un problema'});
